@@ -21,6 +21,8 @@ namespace FeedManagerApp.Importers
 
         public void Import(IEnumerable<T> feeds)
         {
+            var existingFeeds = Repository.LoadFeeds<T>();
+
             foreach (var feed in feeds)
             {
                 var result = GetValidator().Validate(feed);
@@ -31,7 +33,6 @@ namespace FeedManagerApp.Importers
                     continue;
                 }
 
-                var existingFeeds = Repository.LoadFeeds<T>();
                 bool isDuplicate = existingFeeds.Exists(existing => GetMatcher().Match(feed, existing));
 
                 if (!isDuplicate)
