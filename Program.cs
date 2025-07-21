@@ -10,7 +10,7 @@ class Program
     {
         var repository = new InMemoryDatabaseRepository();
 
-        var deltaImporter = new Delta1FeedImporter(repository);
+        var deltaImporter = new DeltaOneFeedImporter(repository);
         var emImporter = new EmFeedImporter(repository);
 
         Console.WriteLine("Importing DeltaOne Feeds:");

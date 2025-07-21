@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace FeedManagerApp.Importers
 {
-    public class Delta1FeedImporter : FeedImporterBase<DeltaOneFeed>
+    public class DeltaOneFeedImporter : FeedImporterBase<DeltaOneFeed>
     {
-        public Delta1FeedImporter(IDatabaseRepository repository) : base(repository) { }
+        public DeltaOneFeedImporter(IDatabaseRepository repository) : base(repository) { }
 
         protected override IFeedValidator<DeltaOneFeed> GetValidator() => new DeltaOneFeedValidator();
         protected override IFeedMatcher<DeltaOneFeed> GetMatcher() => new DeltaOneFeedMatcher();
